@@ -246,7 +246,11 @@ Korean street food lovers
     <small style="color:#666;">({{ $r->reviews->count() }} reviews)</small>
 </div>
             </p>
-
+          @auth
+              @if(auth()->id() == $r->user_id)
+                  <a href="/edit-restaurant/{{ $r->id }}" class="btn btn-warning">Edit</a>
+              @endif
+          @endauth
             <a href="/restaurant/{{ $r->id }}" class="btn btn-success">View More</a>
 
 
