@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('layout.header1')
 
 @section('content')
     <main class="container">

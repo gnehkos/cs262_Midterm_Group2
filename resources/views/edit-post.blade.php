@@ -11,7 +11,7 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
 
-  <title>Delfood</title>
+  <title>A-ha in Phnom Penh</title>
 
 
   <!-- bootstrap core css -->
@@ -36,7 +36,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container">
           <a class="navbar-brand" href="/index">
             <span>
-              Delfood
+              A-ha in Phnom Penh
             </span>
           </a>
           <div class="" id="">
@@ -60,7 +60,7 @@
             <div id="myNav" class="overlay">
               <div class="overlay-content">
               <a href="/home">Home</a>
-                <a href="/menu">Menu</a>
+                <a href="/allrestaurant">All Restaurants</a>
                 <a href="/khmer">Khmer</a>
                 <a href="/korean">Korean</a>
                 <a href="/japanese">Japanese</a>

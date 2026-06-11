@@ -31,7 +31,7 @@
                 <img src="{{ asset('pic/pp.jpg') }}"
                      class="img-fluid rounded shadow"
                      style="width:100%;
-                            height:300px;
+                            height:200px;
                             object-fit:cover;">
 
             </div>
@@ -153,6 +153,22 @@
 
     </div>
 
+
+
+</div>
+  <!-- jQery -->
+ 
+      <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- slick  slider -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+ 
 </main>
+
 
 @endsection
