@@ -208,6 +208,13 @@
 
                         <p class="text-muted">
                             {{ $r->description }}
+                            @php $avg = $r->reviews->count() > 0 ? round($r->reviews->avg('rating')) : 0; @endphp
+<div class="mb-2">
+    @for($i = 1; $i <= 5; $i++)
+        <i class="fa fa-star{{ $i <= $avg ? '' : '-o' }}" style="color:#f5a623;"></i>
+    @endfor
+    <small style="color:#666;">({{ $r->reviews->count() }} {{ $r->reviews->count() == 1 ? 'review' : 'reviews' }})</small>
+</div>
                         </p>
 
                         <p>

@@ -246,6 +246,11 @@ Udon lovers and casual dining
 </div>
             </p>
 
+            @auth
+                @if(auth()->id() == $r->user_id)
+                    <a href="/edit-restaurant/{{ $r->id }}" class="btn btn-warning">Edit</a>
+                @endif
+            @endauth
         <a href="/restaurant/{{ $r->id }}" class="btn btn-success">View More</a>
 
         </div>
