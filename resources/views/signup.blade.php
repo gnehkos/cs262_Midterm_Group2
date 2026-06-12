@@ -1,6 +1,7 @@
 @extends('layout.header1')
 
 @section('content')
+</div></div></section></div>
     <main class="container my-4">
         <div class="row justify-content-center">
             <div class="col-md-5">
@@ -11,7 +12,8 @@
                         @csrf
                         <input type="text" name="name" class="form-control my-2" placeholder="Username">
                         <input type="password" name="password" class="form-control my-2" placeholder="Password">
-                        <input type="password" name="password_confirmation" class="form-control my-2" placeholder="Repeat Password">
+                        <input type="password" name="password_confirmation" class="form-control my-2"
+                            placeholder="Repeat Password">
                         <input type="email" name="email" class="form-control my-2" placeholder="E-mail">
                         <button type="submit" class="btn btn-primary my-2">SIGN UP</button>
                     </form>

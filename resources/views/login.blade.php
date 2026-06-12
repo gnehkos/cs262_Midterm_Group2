@@ -1,6 +1,6 @@
 @extends('layout.header1')
-
 @section('content')
+</div></div></section></div>
     <main class="container my-4">
         <div class="row justify-content-center">
             <div class="col-md-5">

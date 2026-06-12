@@ -1,5 +1,3 @@
-
-     
 @extends ('layout.header1')
 @section('content')
 
@@ -276,74 +274,7 @@ Premium hot pot experience
 </div>
 </section>
 
-<section class="app_section">
-  <div class="container">
-    <div class="col-md-9 mx-auto">
-      <div class="row">
 
-        <div class="col-md-7 col-lg-8">
-          <div class="detail-box">
-
-            <h2>
-              <span> Get the</span> <br>
-              Delfood App
-            </h2>
-
-            <p>
-              Discover the best restaurants in Phnom Penh with Delfood App. 
-              Explore Khmer, Chinese, Japanese, and Korean cuisines, browse restaurant recommendations, 
-              check restaurant locations and opening hours, and find your next favorite place to eat anytime.
-            </p>
-
-            <div class="app_btn_box">
-
-              <a href="" class="mr-1">
-                <img src="images/google_play.png" class="box-img" alt="">
-              </a>
-
-              <a href="">
-                <img src="images/app_store.png" class="box-img" alt="">
-              </a>
-
-            </div>
-
-            <a href="" class="download_btn">
-              Download Now
-            </a>
-
-          </div>
-        </div>
-
-        <div class="col-md-5 col-lg-4">
-          <div class="img-box">
-            <img src="images/mobile.png" class="box-img" alt="">
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-  
-</section>
-
-
-<!-- footer section -->
-
-<footer class="footer_section">
-  <div class="container">
-
-    <p>
-      &copy; <span id="displayYear"></span> All Rights Reserved By
-      Delfood Team <br>
-
-      Discover Restaurants • Explore Foods • Enjoy Dining
-    </p>
-
-  </div>
-</footer>
-
-
-    <!-- footer section -->
 
   </div>
   <!-- jQery -->

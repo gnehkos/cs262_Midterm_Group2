@@ -8,10 +8,11 @@ use App\Models\Restaurant;
 
 class ReviewController extends Controller
 {
-    public function createReview(Request $request, Restaurant $restaurant){
+    public function createReview(Request $request, Restaurant $restaurant)
+    {
         $incomingFields = $request->validate([
-            'comment' => 'required',
-            'rating' => ['required', 'integer', 'min:1', 'max:5']
+            'rating' => ['required', 'integer', 'min:1', 'max:5'],
+            'comment' => 'nullable|string|max:1000',
         ]);
 
         $incomingFields['comment'] = strip_tags($incomingFields['comment']);
@@ -20,11 +21,12 @@ class ReviewController extends Controller
 
         Review::create($incomingFields);
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Review submitted successfully!');
     }
 
-    public function deleteReview(Review $review){
-        if(auth()->user()->id == $review['user_id']){
+    public function deleteReview(Review $review)
+    {
+        if (auth()->user()->id == $review['user_id']) {
             $review->delete();
         }
 
