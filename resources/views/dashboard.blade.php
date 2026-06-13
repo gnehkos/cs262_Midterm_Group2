@@ -155,7 +155,7 @@
                                                                                         <div class="d-flex gap-2">
                                                                                                 <a href="/edit-restaurant/{{ $r->id }}"
                                                                                                         class="btn btn-warning btn-sm">Edit</a>
-                                                                                                <form action="/delete-restaurant/{{ $r->id }}"
+                                                                                                <form action="/edit-restaurant/{{ $r->id }}"
                                                                                                         method="POST">
                                                                                                         @csrf
                                                                                                         @method('DELETE')

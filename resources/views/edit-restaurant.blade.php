@@ -16,8 +16,30 @@
             @auth
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <div class="p-4 rounded shadow-lg bg-white">
 
+                        {{-- FOOD IMAGE REMOVE FORMS - outside main form --}}
+                        @if($restaurant->foodImages->count() > 0)
+                        <div class="p-4 mb-3 rounded shadow-lg bg-white">
+                            <label class="fw-bold">Current Food Images</label>
+                            <div class="row g-2 mt-2">
+                                @foreach($restaurant->foodImages as $foodImage)
+                                <div class="col-4 col-md-3 text-center">
+                                    <img src="{{ asset('storage/' . $foodImage->image_path) }}"
+                                        style="width:100%; height:100px; object-fit:cover; border-radius:6px;">
+                                    <form action="/delete-food-image/{{ $foodImage->id }}" method="POST" class="mt-1">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger btn-sm"
+                                            style="font-size:0.75rem; padding:2px 8px;">Remove</button>
+                                    </form>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        @endif
+
+                        {{-- MAIN EDIT FORM --}}
+                        <div class="p-4 rounded shadow-lg bg-white">
                             <form action="/edit-restaurant/{{ $restaurant->id }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
@@ -33,14 +55,11 @@
                                     <div class="col-md-6">
                                         <label class="fw-bold">Cuisine Type</label>
                                         <select name="cuisine_type" class="form-select mt-1">
-                                            <option value="Khmer" {{ $restaurant->cuisine_type == 'Khmer' ? 'selected' : '' }}>
-                                                Khmer</option>
-                                            <option value="Korean" {{ $restaurant->cuisine_type == 'Korean' ? 'selected' : '' }}>
-                                                Korean</option>
+                                            <option value="Khmer" {{ $restaurant->cuisine_type == 'Khmer' ? 'selected' : '' }}>Khmer</option>
+                                            <option value="Korean" {{ $restaurant->cuisine_type == 'Korean' ? 'selected' : '' }}>Korean</option>
                                             <option value="Japanese" {{ $restaurant->cuisine_type == 'Japanese' ? 'selected' : '' }}>Japanese</option>
                                             <option value="Chinese" {{ $restaurant->cuisine_type == 'Chinese' ? 'selected' : '' }}>Chinese</option>
-                                            <option value="Other" {{ $restaurant->cuisine_type == 'Other' ? 'selected' : '' }}>
-                                                Other</option>
+                                            <option value="Other" {{ $restaurant->cuisine_type == 'Other' ? 'selected' : '' }}>Other</option>
                                         </select>
                                     </div>
 
@@ -92,26 +111,7 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <label class="fw-bold">Food Images</label>
-
-                                        @if($restaurant->foodImages->count() > 0)
-                                            <div class="row g-2 my-2">
-                                                @foreach($restaurant->foodImages as $foodImage)
-                                                    <div class="col-4 col-md-3 text-center">
-                                                        <img src="{{ asset('storage/' . $foodImage->image_path) }}"
-                                                            style="width:100%; height:100px; object-fit:cover; border-radius:6px;">
-                                                        <form action="/delete-food-image/{{ $foodImage->id }}" method="POST"
-                                                            class="mt-1">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button class="btn btn-danger btn-sm"
-                                                                style="font-size:0.75rem; padding:2px 8px;">Remove</button>
-                                                        </form>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        @endif
-
+                                        <label class="fw-bold">Add More Food Images (optional)</label>
                                         <input type="file" name="food_images[]" class="form-control mt-1" multiple>
                                         <small class="text-muted">Select multiple to add more food photos</small>
                                     </div>
@@ -124,14 +124,13 @@
                                 </div>
 
                             </form>
-
                         </div>
+
                     </div>
                 </div>
             @endauth
 
         </div>
     </section>
-
 
 @endsection

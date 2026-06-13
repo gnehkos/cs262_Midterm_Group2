@@ -23,7 +23,7 @@
                     'Other' => '🍽️',
                 ];
             @endphp
-
+    
             @foreach($cuisines as $cuisine => $flag)
                 @php $filtered = $restaurants->where('cuisine_type', $cuisine); @endphp
                 @if($filtered->count() > 0)

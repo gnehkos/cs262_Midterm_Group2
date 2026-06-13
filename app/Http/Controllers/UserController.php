@@ -8,7 +8,8 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function register(Request $request){
+    public function register(Request $request)
+    {
         $incomingFields = $request->validate([
             'name' => ['required', 'min:3', 'max:20', Rule::unique('users', 'name')],
             'email' => ['required', 'email', Rule::unique('users', 'email')],
@@ -21,16 +22,19 @@ class UserController extends Controller
         return redirect('/login');
     }
 
-    public function login(Request $request){
+    public function login(Request $request)
+    {
         $incomingFields = $request->validate([
             'loginname' => 'required',
             'loginpassword' => 'required'
         ]);
 
-        if(auth()->attempt([
-            'name' => $incomingFields['loginname'],
-            'password' => $incomingFields['loginpassword']
-        ])){
+        if (
+            auth()->attempt([
+                'name' => $incomingFields['loginname'],
+                'password' => $incomingFields['loginpassword']
+            ])
+        ) {
             $request->session()->regenerate();
             return redirect('/dashboard');
         }
@@ -38,7 +42,8 @@ class UserController extends Controller
         return redirect('/login');
     }
 
-    public function logout(){
+    public function logout()
+    {
         auth()->logout();
 
         return redirect('/');

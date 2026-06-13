@@ -10,43 +10,43 @@ use App\Http\Controllers\FoodImageController;
 
 Route::get('/', function () {
     return view('Home', [
-        'restaurants' => Restaurant::with('reviews')->latest()->take(6)->get(),
+        'restaurants' => Restaurant::with(['reviews', 'foodImages'])->latest()->take(6)->get(),
         'foodImages' => FoodImage::with('restaurant')->inRandomOrder()->take(10)->get()
     ]);
 });
 Route::get('/home', function () {
     return view('Home', [
-        'restaurants' => Restaurant::with('reviews')->latest()->take(6)->get(),
+        'restaurants' => Restaurant::with(['reviews', 'foodImages'])->latest()->take(6)->get(),
         'foodImages' => FoodImage::with('restaurant')->inRandomOrder()->take(10)->get()
     ]);
 });
 Route::get('/khmer', function () {
     return view('Khmer', [
-        'restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Khmer')->get(),
+        'restaurants' => Restaurant::with(['reviews', 'foodImages'])->where('cuisine_type', 'Khmer')->get(),
         'foodImages' => FoodImage::whereHas('restaurant', fn($q) => $q->where('cuisine_type', 'Khmer'))->with('restaurant')->inRandomOrder()->take(10)->get()
     ]);
 });
 Route::get('/korean', function () {
     return view('Korean', [
-        'restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Korean')->get(),
+        'restaurants' => Restaurant::with(['reviews', 'foodImages'])->where('cuisine_type', 'Korean')->get(),
         'foodImages' => FoodImage::whereHas('restaurant', fn($q) => $q->where('cuisine_type', 'Korean'))->with('restaurant')->inRandomOrder()->take(10)->get()
     ]);
 });
 Route::get('/japanese', function () {
     return view('Japanese', [
-        'restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Japanese')->get(),
+        'restaurants' => Restaurant::with(['reviews', 'foodImages'])->where('cuisine_type', 'Japanese')->get(),
         'foodImages' => FoodImage::whereHas('restaurant', fn($q) => $q->where('cuisine_type', 'Japanese'))->with('restaurant')->inRandomOrder()->take(10)->get()
     ]);
 });
 Route::get('/chinese', function () {
     return view('Chinese', [
-        'restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Chinese')->get(),
+        'restaurants' => Restaurant::with(['reviews', 'foodImages'])->where('cuisine_type', 'Chinese')->get(),
         'foodImages' => FoodImage::whereHas('restaurant', fn($q) => $q->where('cuisine_type', 'Chinese'))->with('restaurant')->inRandomOrder()->take(10)->get()
     ]);
 });
 Route::get('/other', function () {
     return view('Other', [
-        'restaurants' => Restaurant::with('reviews')->where('cuisine_type', 'Other')->get(),
+        'restaurants' => Restaurant::with(['reviews', 'foodImages'])->where('cuisine_type', 'Other')->get(),
         'foodImages' => FoodImage::whereHas('restaurant', fn($q) => $q->where('cuisine_type', 'Other'))->with('restaurant')->inRandomOrder()->take(10)->get()
     ]);
 });

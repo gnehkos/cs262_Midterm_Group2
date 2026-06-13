@@ -56,7 +56,7 @@ class RestaurantController extends Controller
 
     public function showRestaurant(Restaurant $restaurant)
     {
-        $restaurant->load(['reviews.user', 'foodImages']); // 'reviews.user' is critical
+        $restaurant->load(['reviews.user', 'foodImages']); // 
 
         return view('restaurant', ['restaurant' => $restaurant]);
     }
